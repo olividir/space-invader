@@ -201,6 +201,7 @@ class Enemy(Entity):
         if self.pos[1] < 0:
             game.unbind(on_frame=self.move_step)
             self.stop_callbacks()
+            game.remove_entity(self)
             game.score -= 0.5
             return
         for e in game.colliding_entities(self):
